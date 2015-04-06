@@ -14,7 +14,7 @@ templater = get_renderer('homepage')
 
 
 #############################
-## Shows all items
+## Batch process
 @view_function
 def process_request(request):
     params = {}
