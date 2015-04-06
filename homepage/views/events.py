@@ -24,4 +24,4 @@ def process_request(request):
 
 
 
-
+#for the pages
