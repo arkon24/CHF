@@ -190,3 +190,5 @@ class checkoutform(forms.Form):
         user = authenticate(username=self.cleaned_data.get('username'))
 
         return self.cleaned_data
+
+    #credit card
