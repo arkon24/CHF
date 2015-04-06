@@ -1,0 +1,18 @@
+<%inherit file="base.htm" />
+<%block name="content">
+
+%for Product in catalog_items:
+    <div class="item_container text-center text-muted">
+        <img src="${ STATIC_URL }homepage/media/${ Product.name}.jpg/"/>
+        <a href="/homepage/index2/">
+        <div>${ Product.name }</div>
+        </a>
+        <div>${ Product.price }</div>
+        <input id="qty${ Product.id }"type = "number" name = "qty" value ="0" min="1" max="400"/>
+        <div class="text-right"><button data-pid="${ Product.id }" class="add_button btn btn-xs btn-warning">Add to Cart</button>
+        </div>
+    </div>
+%endfor
+
+</%block>
+

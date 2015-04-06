@@ -1,0 +1,17 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+  <form method ="POST">
+   <table>
+    ${ form }
+   </table>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    %if request.user.is_authenticated():
+        <a href="/homepage/account.delete/${ user.id }/" class=" btn btn-danger">Checkout</a>
+    %else:
+    %endif
+  </form>
+
+</%block>
+

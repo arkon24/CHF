@@ -1,0 +1,85 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head>
+    <title>homepage</title>
+    
+    ## add any site-wide scripts or CSS here; for example, jquery:
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="${ STATIC_URL }homepage/media/jquery.form.js"></script>
+
+    <script src="${ STATIC_URL }homepage/media/jquery.loadmodal.js"></script>
+
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_css(request, context)  }
+  
+  </head>
+  <body>
+  
+<header>
+  Colonial Heritage Foundation
+  </div>
+</header>
+
+  <nav class="navbar navbar-inverse">
+    <p class="navbar-text"></p>
+
+    <div name ="links" class=" nav nav-pills nav-justified">
+        <div class ="pull-right">
+        %if request.user.is_authenticated():
+
+            <li><button id="show_logout_dialog" class ="btn btn-danger">Logout</button>
+            <button id="show_cart_dialog" class ="btn btn-success">Shopping Cart</button>
+        %else:
+            <li><button id="show_login_dialog" class ="btn btn-success">Login</button>
+            <a href ="/homepage/account.create/" class="btn btn-warning">Create New Account</a></li>
+        %endif
+        </div>
+    </div>
+</nav>
+
+    <div class="row">
+        <div class="col-md-2" border :2px solid margin="2px">
+            <center> <p></p><a href="http://localhost:8000/homepage/index2/">Home Page</a></p>
+            <p><a href="http://localhost:8000/homepage/product_catalog/">Product Catalog</a></p>
+            <p><a href="http://localhost:8000/homepage/product/">Product Details</a></p>
+            <p><a href="http://localhost:8000/homepage/contact/">Contact</a></p>
+            <p></p><a href="http://localhost:8000/homepage/about/">About</a></p>
+            <p></p><a href="http://localhost:8000/homepage/crud/">Admin Pages</a></p>
+            %if request.user.is_authenticated():
+            <p><a href="http://localhost:8000/homepage/account/">Account</a></p>
+            %endif
+           <p><a href="http://localhost:8000/homepage/batchprocess/">Overdue Items</a></p>
+           <p><a href="http://localhost:8000/homepage/rentals/">Rental Catalog</a></p>
+           <p><a href="http://localhost:8000/homepage/events/">Events</a></p>
+            </center>
+
+
+        </div>
+        <div class="col-md-8">
+            <%block name="content">
+                Site content goes here in sub-templates.
+            </%block>
+        </div>
+    </div>
+
+    ## render the JS with the same name as this page
+    ${ static_renderer.get_template_js(request, context)  }
+  
+  </body>
+</html>

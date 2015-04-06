@@ -1,0 +1,28 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<div class="text-right">
+</div>
+
+<table id="items_table" class="table table-striped table-bordered">
+    <tr>
+        <th>Area Name</th>
+        <th>Description</th>
+        <th>Coordinator</th>
+        <th>Supervisor</th>
+        <th>Event Name</th>
+    </tr>
+%for area in areas:
+  <tr>
+    <td>${area.aname} </td>
+    <td>${area.description} </td>
+    <td>${area.coordinator} </td>
+    <td>${area.supervisor} </td>
+    <td>${area.event }</td>
+
+  </tr>
+%endfor
+</table>
+
+</%block>

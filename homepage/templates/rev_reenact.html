@@ -1,0 +1,81 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<div class="text-right">
+<!--<a href ="/homepage/events.create/" class="btn btn-warning">Create New Event</a>-->
+</div>
+
+<table id="events_table" class="table table-striped table-bordered">
+    <center><h4>Main Event</h4></center>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+    </tr>
+%for event in events:
+  <tr>
+    <td>${event.name}</td>
+    <td>${event.type} </td>
+    <td>${event.location} </td>
+    <td>${event.description} </td>
+    <td>${event.start_date} </td>
+    <td>${event.end_date} </td>
+    <td>${event.address1} </td>
+    <td>${event.city} </td>
+    <td>${event.state} </td>
+    <td>${event.zip} </td>
+  </tr>
+%endfor
+</table>
+
+
+<div class="text-right">
+</div>
+
+<table id="events_table" class="table table-striped table-bordered">
+    <center><h4>Event Areas</h4></center>
+    <tr>
+        <th>Areas for the event</th>
+        <th>Description</th>
+    </tr>
+%for area in areas:
+  <tr>
+    <td>${area.aname}</td>
+    <td>${area.description} </td>
+  </tr>
+%endfor
+</table>
+
+
+
+<div class="text-right">
+</div>
+
+<table id="events_table" class="table table-striped table-bordered">
+    <tr>
+        <center><h4>Expected Sale Items</h4></center>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Area</th>
+    </tr>
+%for expected_sale_item in exp:
+  <tr>
+    <td>${expected_sale_item.name}</td>
+    <td>${expected_sale_item.description} </td>
+    <td>${expected_sale_item.area}</td>
+  </tr>
+%endfor
+</table>
+
+
+</%block>
+
+

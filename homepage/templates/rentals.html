@@ -1,0 +1,30 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<table id="rentals_table" class="table table-striped table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Times Rented</th>
+        <th>Price Per Day</th>
+        <th>Replacement Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+%for rental in rentals:
+  <tr>
+
+    <td><a href = "/homepage/rentals.detail/${ rental.id }/">${rental.name}</a></td>
+    <td><center><img src="${ STATIC_URL }homepage/media/${ rental.name}.jpg/" height="150" /></center></td>
+    <td>${rental.times_rented} </td>
+    <td>${rental.price_per_day} </td>
+    <td>${rental.replacement_price} </td>
+    <td><input id="qty${ rental.id }"type = "number" name = "qty" value ="0" min="1" max="400"/></td>
+    <td><button data-pid="${ rental.id }" class="add_button btn btn-xs btn-warning">Add to Cart</button></td>
+  </tr>
+%endfor
+</table>
+</%block>
+
+

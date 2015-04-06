@@ -1,0 +1,15 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+
+  <div id ='loginform' align="center">
+    <form id="loginform2" method="POST" action="/homepage/index2.loginform/">
+      <table>
+        ${ form }
+      </table>
+      <input type ="submit"/>
+    </form>
+      <a href="/password_reset/" class="btn btn-warning">Forgot Password?</a>
+</div>
+
+</%block>

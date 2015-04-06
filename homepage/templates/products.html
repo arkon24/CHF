@@ -1,0 +1,31 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<div class="text-right">
+<a href ="/homepage/products.create/" class="btn btn-warning">Create New Product</a>
+</div>
+
+<table id="products_table" class="table table-striped table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+%for product in products:
+  <tr>
+    <td>${product.id}</td>
+    <td>${product.name} </td>
+    <td>${product.description} </td>
+    <td>${product.price} </td>
+    <td>
+        <a href = "/homepage/products.edit/${ product.id }/" class="btn btn-xs btn-default">Edit</a>
+    </td>
+  </tr>
+%endfor
+</table>
+
+</%block>
+
