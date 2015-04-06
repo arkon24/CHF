@@ -12,7 +12,7 @@ from django.contrib.auth.models import Group, Permission, ContentType
 templater = get_renderer('homepage')
 
 #############################
-## Shows all products
+## Shows all rental products
 @view_function
 def process_request(request):
     params = {}
