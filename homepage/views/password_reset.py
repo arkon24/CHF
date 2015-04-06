@@ -50,3 +50,5 @@ def reset_confirm(request, uidb64=None, token=None):
 # This view renders a page with success message.
 def success(request):
   return render(request, "success.html")
+
+#reset password
